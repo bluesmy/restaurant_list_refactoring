@@ -1,0 +1,68 @@
+<h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
+
+<div class="container my-4">
+  <form action="/restaurants/{{restaurant.id}}/edit" method="POST">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name" class="text-danger">中文名稱</label>
+        <input type="text" name="name" value="{{restaurant.name}}" class="form-control" id="name" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="name_en">英文名稱</label>
+        <input type="text" name="name_en" value="{{restaurant.name_en}}" class="form-control" id="name_en">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="category" class="text-danger">類別</label>
+        <input type="text" name="category" value="{{restaurant.category}}" class="form-control" id="category" required>
+      </div>
+      <div class="form-group col-md-5">
+        <label for="phone">電話</label>
+        <input type="text" name="phone" value="{{restaurant.phone}}" class="form-control" id="phone">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="rating" class="text-danger">評分</label>
+        <input type="number" placeholder="請輸入1 ~ 5分" name="rating" value="{{restaurant.rating}}" class="form-control"
+          id="rating" step="0.1" min="1" max="5" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="location" class="text-danger">地址</label>
+      <input type="text" name="location" value="{{restaurant.location}}" class="form-control" id="location" required>
+    </div>
+
+    <div class="form-group">
+      <label for="google_map">Google地圖位址</label>
+      <input type="url" name="google_map" value="{{restaurant.google_map}}" class="form-control" id="google_map"
+        placeholder="https://www.google.com/maps/place/">
+    </div>
+
+    <div class="form-group">
+      <label for="description">描述</label>
+      <textarea type="text" placeholder="請描述此餐廳的特色" name="description" class="form-control" id="description"
+        rows="4">{{restaurant.description}}</textarea>
+    </div>
+
+    {{!-- <div class="form-group">
+      <label for="uploadImage">目前圖片為: {{restaurant.image}}</label>
+      <input type="file" name="image" class="form-control-file" id="uploadImage" value="{{restaurant.image}}"
+        accept="text/html,.jpg,.png">
+    </div> --}}
+    <div class="form-group">
+      <label for="image" class="text-danger">圖片URL</label>
+      <input type="url" name="image" value="{{restaurant.image}}"
+        onerror="https://via.placeholder.com/600x400.pngblank.gif" class="form-control" id="image"
+        placeholder="http:// 或 https://" required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="reset" name="clear" value="Reset" class="ml-2 btn btn-secondary btn-sm">
+        <button type="submit" class="ml-2 btn btn-info btn-sm">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
