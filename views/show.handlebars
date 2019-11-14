@@ -4,7 +4,7 @@
     <div class="col-12 col-md-10 mx-auto">
 
       <div class="mb-4 d-flex">
-        <form action="/restaurants/{{{restaurant.id}}}/delete" method="POST" style="display: inline;"
+        <form action="/restaurants/{{{restaurant.id}}}/?_method=DELETE" method="POST" style="display: inline;"
           onSubmit="if(!confirm('確定刪除？')){return false}">
           <a href="/restaurants/{{restaurant.id}}/edit" class="ml-2 btn btn-dark btn-sm">Edit</a>
           <button type="submit" class="ml-2 btn btn-danger btn-sm">Delete</button>

@@ -7,12 +7,19 @@ const exphbs = require('express-handlebars')
 
 // 引用 body-parser
 const bodyParser = require('body-parser')
+
+// 引用 method-override
+const methodOverride = require('method-override')
+
 // 設定 bodyParser
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // 告訴 express 使用 handlebars 當作 template engine 並預設 layout 是 main
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
+
+// 設定 method-override
+app.use(methodOverride('_method'))
 
 app.use(express.static('public'))
 
@@ -84,7 +91,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
   })
 })
 // 修改 Restaurant
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.error(err)
     restaurant.name = req.body.name
@@ -103,7 +110,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
   })
 })
 // 刪除 Restaurant
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.error(err)
     restaurant.remove(err => {

@@ -39,7 +39,7 @@
               </span>
             </div>
             <div class="card-footer d-flex justify-content-end">
-              <form action="/restaurants/{{{this.id}}}/delete" method="POST" style="display: inline;"
+              <form action="/restaurants/{{{this.id}}}/?_method=DELETE" method="POST" style="display: inline;"
                 onSubmit="if(!confirm('確定刪除？')){return false}">
                 <a href="/restaurants/{{this.id}}/edit" class="ml-2 btn btn-dark btn-sm">Edit</a>
                 <a href="/restaurants/{{this.id}}" class="ml-2 btn btn-info btn-sm">Detail</a>
