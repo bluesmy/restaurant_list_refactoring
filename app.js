@@ -15,7 +15,12 @@ const methodOverride = require('method-override')
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // 告訴 express 使用 handlebars 當作 template engine 並預設 layout 是 main
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  helpers: {
+    ifEquals: function (arg1, arg2, options) { return (arg1 == arg2) ? options.fn(this) : options.inverse(this) }
+  }
+}))
 app.set('view engine', 'handlebars')
 
 // 設定 method-override
@@ -45,6 +50,7 @@ const Restaurant = require('./models/restaurant.js')
 app.use('/', require('./routes/home'))
 app.use('/restaurants', require('./routes/restaurant'))
 app.use('/search', require('./routes/search'))
+app.use('/sort', require('./routes/sort'))
 
 // 設定 express port 3000
 app.listen(3000, () => {

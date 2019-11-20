@@ -16,6 +16,60 @@
   </div>
 </div>
 
+{{!-- sort --}}
+<div class="container mt-5 d-flex justify-content-end">
+  <div class="dropdown ml-3">
+    <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      {{#if sortName}}
+      {{sortName}}
+      {{else}}
+      Sort
+      {{/if}}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      {{#if sortOrderName}}
+      {{#ifEquals sortOrderName '遞增'}}
+      {{#each sortConditions.sortInfos}}
+      <a class="dropdown-item" href="/sort/{{this.condition}}/{{this.name}}/1/遞增">{{this.name}}</a>
+      {{/each}}
+      {{/ifEquals}}
+      {{#ifEquals sortOrderName '遞減'}}
+      {{#each sortConditions.sortInfos}}
+      <a class="dropdown-item" href="/sort/{{this.condition}}/{{this.name}}/-1/遞減">{{this.name}}</a>
+      {{/each}}
+      {{/ifEquals}}
+      {{else}}
+      {{#each sortConditions.sortInfos}}
+      <a class="dropdown-item" href="/sort/{{this.condition}}/{{this.name}}/1/遞增">{{this.name}}</a>
+      {{/each}}
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="dropdown ml-3">
+    <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      {{#if sortOrderName}}
+      {{sortOrderName}}
+      {{else}}
+      遞增
+      {{/if}}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      {{#if sortCondition}}
+      {{#each sortConditions.sortOrders}}
+      <a class="dropdown-item" href="../{{this.order}}/{{this.orderName}}">{{this.orderName}}</a>
+      {{/each}}
+      {{else}}
+      {{#each sortConditions.sortOrders}}
+      <a class="dropdown-item" href="/sort/name/名稱/{{this.order}}/{{this.orderName}}">{{this.orderName}}</a>
+      {{/each}}
+      {{/if}}
+    </div>
+  </div>
+</div>
+
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row col-md-10 col-12 mx-auto justify-content-center">
