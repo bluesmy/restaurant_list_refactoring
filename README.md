@@ -1,6 +1,6 @@
-# 我的餐廳清單-新增CRUD功能 (Restaurant List with CRUD)
+# 我的餐廳清單-重構 (Restaurant List- Refactoring)
 
-使用 Node.js + Express 打造的餐廳清單網站，可管理餐廳清單，包括新增、閱讀、修改、刪除餐廳資訊等功能，也可依照餐廳名稱與分類進行搜尋。
+使用 Node.js + Express 打造的餐廳清單網站，以 RESTful 路由重構，可管理餐廳清單，包括新增、閱讀、修改、刪除餐廳資訊等功能，也可依照餐廳名稱與分類進行搜尋，以及依照餐廳名稱、類別、地區、評分進行排序。
 
 ## 環境建置與需求 (Prerequisites)
 
@@ -10,19 +10,20 @@
 * [Body-Parser ^1.19.0](https://www.npmjs.com/package/body-parser)
 * [MongoDB ^4.0.13](https://www.mongodb.com/)
 * [Mongoose ^5.7.10](https://mongoosejs.com/)
+* [Method-Override ^3.0.0](https://www.npmjs.com/package/method-override)
 
 ## 安裝與執行步驟 (Installing and execution)
 
 1.開啟終端機(Terminal)，clone到本機專案位置:
 
 ```
-git clone https://github.com/bluesmy/restaurant_list_with_CRUD.git
+git clone https://github.com/bluesmy/restaurant_list_refactoring.git
 ```
 
 2.切換至專案資料夾
 
 ```
-cd restaurant_list_with_CRUD
+cd restaurant_list_refactoring
 ```
 
 3.安裝套件
@@ -73,12 +74,13 @@ Ctrl + C *2  //連按兩下 Ctrl + C 關閉伺服器
 - 可新增、編輯、刪除餐廳資訊
 - 檢視餐廳詳細資訊包含類別、地址、電話、描述、圖片
   - 點選地址旁圖示可開啟新分頁查看Google Map上該地點資訊
+- 依照餐廳名稱、類別、地區、評分進行升冪或降冪排序
 
 ## 專案畫面 (Screenshot)
 
-![首頁](https://raw.githubusercontent.com/bluesmy/restaurant_list_with_CRUD/master/public/img/index.png)
-![餐廳詳細資訊](https://raw.githubusercontent.com/bluesmy/restaurant_list_with_CRUD/master/public/img/detail.png)
-![編輯餐廳頁面](https://raw.githubusercontent.com/bluesmy/restaurant_list_with_CRUD/master/public/img/edit.png)
+![首頁](https://raw.githubusercontent.com/bluesmy/restaurant_list_refactoring/master/public/img/index.png)
+![餐廳詳細資訊](https://raw.githubusercontent.com/bluesmy/restaurant_list_refactoring/master/public/img/detail.png)
+![編輯餐廳頁面](https://raw.githubusercontent.com/bluesmy/restaurant_list_refactoring/master/public/img/edit.png)
 
 ## 專案使用工具 (Built With)
 
@@ -88,6 +90,7 @@ Ctrl + C *2  //連按兩下 Ctrl + C 關閉伺服器
 * [Body-Parser](https://www.npmjs.com/package/body-parser) - Parse incoming request bodies in a middleware before handlers
 * [MongoDB](https://www.mongodb.com/) - The database used
 * [Mongoose](https://mongoosejs.com/) - ODM of MongoDB
+* [Method-Override](https://www.npmjs.com/package/method-override) - Enable usage of HTTP verbs such as PUT or DELETE
 
 ## 專案開發人員 (Contributor)
 
